@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 
 import { Heading } from '@chakra-ui/react';
-import { VStack, IconButton } from '@chakra-ui/react';
+import { VStack, IconButton, useColorMode } from '@chakra-ui/react';
 
 import { FaSun, FaMoon } from 'react-icons/fa';
 
@@ -29,13 +29,16 @@ function App() {
     setTodos([...todos, todo]);
   };
 
+  const { colorMode, toggleColorMode } = useColorMode();
+
   return (
     <VStack p={4}>
       <IconButton
-        icon={<FaSun />}
+        icon={colorMode === 'light' ? <FaSun /> : <FaMoon />}
         isRound="true"
         size="lg"
         alignSelf="flex-end"
+        onClick={toggleColorMode}
       />
       <Heading
         pb={8}
