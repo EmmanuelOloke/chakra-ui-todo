@@ -10,18 +10,13 @@ import TodoList from './components/TodoList';
 import AddTodo from './components/AddTodo';
 
 function App() {
-  const initalTodos = [
-    {
-      id: 1,
-      body: 'get bread',
-    },
-    {
-      id: 2,
-      body: 'get butter',
-    },
-  ];
+  const [todos, setTodos] = useState(
+    () => JSON.parse(localStorage.getItem('todos')) || [] // getItem returns a string, and we convert that string into an array using JSON.parse. To prevernt the JSON.parse from getting executed on every re-render, we have to pass it as a function. It is unneccessary to execute it on every rerender because initial state is only used on the first render.
+  );
 
-  const [todos, setTodos] = useState(initalTodos);
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos)); // useEffect will fire whenever the todos state changes, that's why we pass [todos] to it as a dependency. Then we use JSON.Stringify to convert the todos we get to string
+  }, [todos]);
 
   const deleteTodo = (id) => {
     const newTodo = todos.filter((todo) => {
