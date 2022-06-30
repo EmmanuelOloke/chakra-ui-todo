@@ -18,7 +18,7 @@ function App() {
         alignSelf="flex-end"
       />
       <Heading
-        mb="8"
+        pb={8}
         fontWeight="extrabold"
         size="2xl"
         bgGradient="linear(to-r, pink.500, pink.300, blue.500)"
