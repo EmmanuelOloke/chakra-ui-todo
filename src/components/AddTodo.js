@@ -1,12 +1,22 @@
+import React from 'react';
 import { useState } from 'react';
 
 import { Button, HStack, Input } from '@chakra-ui/react';
-import React from 'react';
+
+import { nanoid } from 'nanoid';
 
 function AddTodo({ addTodo }) {
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(inputContent);
+
+    const todo = {
+      id: nanoid(),
+      body: inputContent,
+    };
+
+    addTodo(todo);
+
+    setInputContent('');
   };
 
   const [inputContent, setInputContent] = useState('');
