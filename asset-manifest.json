@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/chakra-ui-todo/static/js/main.dc6a37ea.js",
+    "index.html": "/chakra-ui-todo/index.html",
+    "main.dc6a37ea.js.map": "/chakra-ui-todo/static/js/main.dc6a37ea.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.dc6a37ea.js"
+  ]
+}
