@@ -30,6 +30,10 @@ function App() {
     setTodos(newTodo);
   };
 
+  const addTodo = (todo) => {
+    setTodos([...todos, todo]);
+  };
+
   return (
     <VStack p={4}>
       <IconButton
@@ -48,7 +52,7 @@ function App() {
         Todo Application
       </Heading>
       <TodoList todos={todos} deleteTodo={deleteTodo} />
-      <AddTodo />
+      <AddTodo addTodo={addTodo} />
     </VStack>
   );
 }
